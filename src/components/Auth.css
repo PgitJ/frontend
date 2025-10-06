@@ -1,0 +1,130 @@
+/* src/components/Auth.css */
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.auth-card form div {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.auth-card label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Largura máxima em px, mas ajusta para 100% em telas menores */
+.auth-card input {
+  width: 100%; 
+  max-width: 260px; /* Largura máxima definida em px */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block; /* Garante que a largura se aplique corretamente */
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.auth-card button:hover {
+  background-color: #2980b9;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin: 10px 0;
+}
+
+.success-message {
+  color: #27ae60;
+  margin: 10px 0;
+}
+
+.toggle-auth {
+  margin-top: 20px;
+  color: #3498db;
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* src/components/Auth.css */
+
+/* ... Código CSS existente (Para Desktop/Padrão) ... */
+
+/* --- RESPONSIVIDADE (Mobile) --- */
+@media (max-width: 500px) {
+    
+    .auth-container {
+        /* Reduz o padding vertical em telas muito pequenas */
+        padding: 10px;
+    }
+
+    .auth-card {
+        /* Permite que o card ocupe quase toda a largura */
+        max-width: 95%; 
+        padding: 30px 20px; /* Reduz o padding interno para economizar espaço */
+        box-sizing: border-box; /* Garante que padding não cause overflow */
+    }
+
+    /* Ajuste de Campos: Garante que os inputs preencham a largura */
+    .auth-card form div {
+        /* Alinha o texto à esquerda (ou centraliza no mobile, se preferir) */
+        text-align: left;
+    }
+    
+    .auth-card label {
+        /* Faz o label ser exibido como um bloco acima do input, se necessário */
+        display: block; 
+    }
+
+    .auth-card input {
+        /* A regra crucial: faz o input ocupar a largura total do card */
+        width: 100%; 
+        max-width: 100%; /* Sobrescreve o max-width fixo (260px) que estava causando o problema */
+        display: block;
+    }
+
+    .auth-card button {
+        /* O botão já é 100%, mas garantimos */
+        width: 100%;
+    }
+
+    /* Garante que os campos fiquem verticalmente empilhados se houver outras divs */
+    .auth-card form > div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
