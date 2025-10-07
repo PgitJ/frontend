@@ -10,12 +10,14 @@ import TransactionForm from './components/TransactionForm';
 import ConfirmModal from './components/ConfirmModal';
 import Auth from './components/Auth';
 import SettingsPage from './pages/SettingsPage';
+import useTheme from './hooks/useTheme';
 
 const API_BASE_URL = 'https://53aac2eb-84f9-443f-b4bf-e1bc41d882bb-00-1hqfjuhlfgwqv.picard.replit.dev';
 const API_URL = API_BASE_URL+'/api';
 const AUTH_URL = API_BASE_URL+'/auth';
 
 function App() {
+  const [theme, toggleTheme] = useTheme(); 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
   const [showForm, setShowForm] = useState(false);
@@ -356,7 +358,12 @@ function App() {
   return (
     <Router>
       <div>
-        <Header username={username} onAddTransactionClick={handleAddTransactionClick} balance={currentBalance} onLogout={handleLogout} />
+        <Header username={username} onAddTransactionClick={handleAddTransactionClick} balance={currentBalance} onLogout={handleLogout}>
+          <button onClick={toggleTheme} className="theme-toggle-button">
+            {theme === 'light' ? '🌙 Modo Escuro' : '☀️ Modo Claro'}
+          </button>
+        </Header>
+        
         {showForm && (
           <div className="modal-overlay">
             <TransactionForm

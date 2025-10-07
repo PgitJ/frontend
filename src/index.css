@@ -2,6 +2,29 @@
 
 /* Estilos globais */
 
+:root {
+  /* LIGHT MODE (Padrão) */
+  --color-primary: #3498db;          /* Azul (Botões, Links) */
+  --color-text: #333;               /* Preto (Texto Principal) */
+  --color-background-app: #f4f7f9;  /* Cinza Claro (Fundo Principal) */
+  --color-background-card: #fff;     /* Branco (Cards, Header, Form) */
+  --color-border: #ddd;              /* Cinza (Bordas, Separadores) */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* Sombra Leve */
+  --color-title: #D2ECF4;
+  /* Cores Fixas (Para manter o contraste em Receita/Despesa) */
+  --color-income: #2ecc71;          /* Verde (Receita) */
+  --color-expense: #e74c3c;         /* Vermelho (Despesa) */
+}
+
+/* DARK MODE (Sobrescreve as variáveis quando a classe 'dark-mode' estiver ativa) */
+.dark-mode {
+  --color-title: #afcae4;
+  --color-text: #f4f7f9;
+  --color-background-app: #061419;   /* Fundo escuro total */
+  --color-background-card: #1e5464;  /* Cards e elementos um pouco mais claros que o fundo */
+  --color-border: #333;
+  --color-shadow: rgba(255, 255, 255, 0.05); /* Sombra escura sutil */
+}
 *,
 *::before,
 *::after {
@@ -12,8 +35,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f7f9;
-  color: #333;
+  background-color: var(--color-background-app);
+  color: var(--color-text);
   overflow-x: hidden;
 }
 
@@ -25,18 +48,18 @@ main {
 }
 
 h1, h2, h3 {
-  color: #2c3e50;
+  color: var(--color-title);
 }
 
 
 /* Estilos do cabeçalho */
 header {
-  background-color: #fff;
+  background-color: var(--color-background-card);
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--color-border);
 }
 
 header h1 {
@@ -86,8 +109,8 @@ nav {
   align-items: center; /* CORRIGIDO: Centraliza os itens verticalmente */
   gap: 20px;
   padding: 20px 0; /* CORRIGIDO: Adiciona padding vertical para espaçamento */
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--color-background-card);
+  border-bottom: 1px solid var(--color-border);
   margin-bottom: 20px;
 }
 nav a {
@@ -200,7 +223,7 @@ form .radio-group label {
 }
 
 .card {
-  background-color: #fff;
+  background-color: var(--color-background-card);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

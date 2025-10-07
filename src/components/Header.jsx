@@ -6,7 +6,7 @@ function capitalize(str) {
   if (!str) return str; // Retorna a própria string se for nula ou vazia
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-const Header = ({ username, balance, onLogout, onAddTransactionClick }) => {
+const Header = ({ username, balance, onLogout, onAddTransactionClick, children}) => {
   return (
     <header>
       <h1>Finanças Pessoal</h1>
@@ -15,6 +15,7 @@ const Header = ({ username, balance, onLogout, onAddTransactionClick }) => {
         <button className="add-transaction-button" onClick={onAddTransactionClick}>+ Adicionar Transação</button>
       </div>
       <div className="header-user-info">
+        {children}
         <div className="user-info">
           <span>Olá, {capitalize(username)}</span>
           <button className="logout-button" onClick={onLogout}>Sair</button>
