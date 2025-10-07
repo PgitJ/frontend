@@ -13,8 +13,8 @@ import SettingsPage from './pages/SettingsPage';
 import useTheme from './hooks/useTheme';
 
 // const API_BASE_URL = 'https://backend-python-5ehm.onrender.com';
-const API_URL = 'https://backend-python-5ehm.onrender.com/api';
-const AUTH_URL = 'https://backend-python-5ehm.onrender.com/auth';
+const API_URL = 'https://backend-u2li.onrender.com/api';
+const AUTH_URL = 'https://backend-u2li.onrender.com/auth';
 
 function App() {
   const [theme, toggleTheme] = useTheme(); 

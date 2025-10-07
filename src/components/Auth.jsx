@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './Auth.css';
 
-const AUTH_URL = 'https://backend-python-5ehm.onrender.com/auth';
+const AUTH_URL = 'https://backend-u2li.onrender.com/auth';
 
 const Auth = ({ onLoginSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);

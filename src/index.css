@@ -7,23 +7,38 @@
   --color-primary: #3498db;          /* Azul (Botões, Links) */
   --color-text: #333;               /* Preto (Texto Principal) */
   --color-background-app: #f4f7f9;  /* Cinza Claro (Fundo Principal) */
-  --color-background-card: #fff;     /* Branco (Cards, Header, Form) */
+  --color-background-card: #fff;
+  --color-background-table: #fff; 
+  --color-background-filter: #fff;
+  --color-background-button: #3498db;
+  --color-background-button-chart: #ecf0f1;
+  --color-background-carg-settings: #f9f9f9;
+  --divisor: #b9b9b9;
+      /* Branco (Cards, Header, Form) */
   --color-border: #ddd;              /* Cinza (Bordas, Separadores) */
   --color-shadow: rgba(0, 0, 0, 0.1); /* Sombra Leve */
   --color-title: #D2ECF4;
   /* Cores Fixas (Para manter o contraste em Receita/Despesa) */
   --color-income: #2ecc71;          /* Verde (Receita) */
-  --color-expense: #e74c3c;         /* Vermelho (Despesa) */
+  --color-expense: #e74c3c;     
+      /* Vermelho (Despesa) */
 }
 
 /* DARK MODE (Sobrescreve as variáveis quando a classe 'dark-mode' estiver ativa) */
 .dark-mode {
   --color-title: #afcae4;
   --color-text: #f4f7f9;
-  --color-background-app: #061419;   /* Fundo escuro total */
-  --color-background-card: #1e5464;  /* Cards e elementos um pouco mais claros que o fundo */
+  --color-background-button-chart: #68686e;
+  --divisor: #2e2e32;
+  --color-background-app: #1b1b1f;   /* Fundo escuro total */
+  --color-background-card: #161618; 
+  --color-background-carg-settings: #202020;
+  --color-background-filter: #202127; /* Cards e elementos um pouco mais claros que o fundo */
   --color-border: #333;
-  --color-shadow: rgba(255, 255, 255, 0.05); /* Sombra escura sutil */
+  --color-shadow: rgba(255, 255, 255, 0.05);
+  --color-background-table: #161618;
+  --color-background-button: #86a2da;
+    /* Sombra escura sutil */
 }
 *,
 *::before,
@@ -43,7 +58,7 @@ body {
 main {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px 20px;
   box-sizing: border-box; /* Garante que o padding não adicione largura extra */
 }
 
@@ -51,6 +66,9 @@ h1, h2, h3 {
   color: var(--color-title);
 }
 
+.categorie-name{
+  background-color: #161618;
+}
 
 /* Estilos do cabeçalho */
 header {
@@ -73,7 +91,7 @@ header h1 {
 
 .add-transaction-button {
   padding: 10px 15px;
-  background-color: #3498db;
+  background-color: var(--color-background-button);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -134,6 +152,7 @@ button {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  
 }
 
 /* Estilos do formulário (Modal) */
@@ -194,7 +213,7 @@ form button {
 
 header button,
 form button[type="submit"] {
-  background-color: #3498db;
+  background-color: var(--color-background-button);
   color: #fff;
 }
 
@@ -247,7 +266,7 @@ form .radio-group label {
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
+  background-color: var(--color-background-table);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
@@ -262,7 +281,7 @@ table th, table td {
 }
 
 table thead {
-  background-color: #ecf0f1;
+  background-color: var(--color-background-table-title);
 }
 
 /* Estilos da página de Metas */
@@ -329,7 +348,7 @@ table thead {
 }
 
 .bill-card button {
-  background-color: #3498db;
+  background-color: var(--color-background-button);
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -488,7 +507,7 @@ table thead {
 
 .chart-controls button {
   padding: 10px 15px;
-  background-color: #ecf0f1;
+  background-color: var(--color-background-button-chart);
   color: #333;
   border: none;
   border-radius: 5px;
@@ -507,6 +526,7 @@ table thead {
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 20px;
+
 }
 
 .search-input {
@@ -516,10 +536,15 @@ table thead {
   border-radius: 8px;
 }
 
+.filter-select, .search-input{
+    background-color: var(--color-background-filter);
+}
 .filter-select {
   padding: 8px;   
   border: 1px solid #ccc;
   border-radius: 8px;
+  color: var(--color-text);
+
 }
 hr{
   margin: 15px 0;
@@ -545,7 +570,7 @@ hr{
     }
 
     .header-user-info {
-        border-top: 1px solid #eee;
+        border-top: 1px solid var(--divisor);
         order: 2;
         /* Coloca Saldo e User Info um sobre o outro */
         flex-direction: column; 
