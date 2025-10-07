@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './Auth.css';
 
-const AUTH_URL = 'https://53aac2eb-84f9-443f-b4bf-e1bc41d882bb-00-1hqfjuhlfgwqv.picard.replit.dev/auth';
+const AUTH_URL = 'https://backend-python-5ehm.onrender.com/auth';
 
 const Auth = ({ onLoginSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);

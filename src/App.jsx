@@ -12,9 +12,9 @@ import Auth from './components/Auth';
 import SettingsPage from './pages/SettingsPage';
 import useTheme from './hooks/useTheme';
 
-const API_BASE_URL = 'https://53aac2eb-84f9-443f-b4bf-e1bc41d882bb-00-1hqfjuhlfgwqv.picard.replit.dev';
-const API_URL = API_BASE_URL+'/api';
-const AUTH_URL = API_BASE_URL+'/auth';
+// const API_BASE_URL = 'https://backend-python-5ehm.onrender.com';
+const API_URL = 'https://backend-python-5ehm.onrender.com/api';
+const AUTH_URL = 'https://backend-python-5ehm.onrender.com/auth';
 
 function App() {
   const [theme, toggleTheme] = useTheme(); 
