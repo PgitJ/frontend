@@ -9,11 +9,18 @@ const GoalForm = ({ onAddGoal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    let formattedDate = targetDate;
+    if (targetDate && !targetDate.includes('T')) {
+        // Se targetDate é uma string YYYY-MM-DD, não precisa formatar
+    } else {
+        // Se for um objeto Date, converte para YYYY-MM-DD
+        formattedDate = new Date(targetDate).toISOString().split('T')[0];
+    }
     const newGoal = {
       name: goalName,
       amount: parseFloat(goalAmount),
       saved: 0,
-      target_date: targetDate, // O banco espera snake_case
+      target_date: formattedDate, // O banco espera snake_case
     };
     onAddGoal(newGoal);
     setGoalName('');
