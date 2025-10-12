@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+.container{
+  position: relative;
+}
+
+
 .auth-card {
   background-color: #fff;
   padding: 40px;
@@ -25,7 +30,7 @@
   color: #333;
 }
 
-.auth-card form div {
+/* .auth-card form div {
   margin-bottom: 15px;
   text-align: left;
 }
@@ -35,18 +40,71 @@
   font-weight: bold;
   margin-bottom: 5px;
   color: #555;
-}
+} */
 
 /* Largura máxima em px, mas ajusta para 100% em telas menores */
-.auth-card input {
+/* .auth-card input {
   width: 100%; 
-  max-width: 260px; /* Largura máxima definida em px */
+  max-width: 260px; 
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
-  display: inline-block; /* Garante que a largura se aplique corretamente */
+  display: inline-block;
+} */
+
+.auth-card .container {
+  position: relative;
+  margin-bottom: 25px; /* Espaçamento entre os campos */
 }
+.auth-container .auth-card form label{
+  /* padding: 0 5px !important; */
+  min-width: 10px;
+}
+
+
+
+/* Estilo do label animado */
+.auth-card .label {
+  color: #8a8a8a;
+  padding: 0 10px !important;
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+
+
+/* Estilo do campo de input */
+.auth-card .input  {
+  width: 100%;
+  height: 55px;
+  padding: 0 1rem;
+  font-size: 1rem;
+  color: #333;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: transparent;
+  outline: none;
+  box-sizing: border-box;
+  flex: initial;
+}
+
+/* Animação quando o input está em foco ou preenchido */
+.auth-card .input:focus {
+  border-color: #3498db;
+}
+
+.auth-card .input:focus~label,
+.auth-card .input:valid~label {
+  top: 0; 
+  font-size: 0.8rem;
+  color: #3498db;
+  background-color: #fff; /* Essencial para cobrir a borda do input */
+}
+
 
 .auth-card button {
   width: 100%;
@@ -109,10 +167,11 @@
         /* Faz o label ser exibido como um bloco acima do input, se necessário */
         display: block; 
     }
-
+    
     .auth-card input {
         /* A regra crucial: faz o input ocupar a largura total do card */
         width: 100%; 
+        height: 55px ;
         max-width: 100%; /* Sobrescreve o max-width fixo (260px) que estava causando o problema */
         display: block;
     }

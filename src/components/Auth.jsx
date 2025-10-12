@@ -53,26 +53,36 @@ const Auth = ({ onLoginSuccess }) => {
       <div className="auth-card">
         <h2>{isLogin ? 'Login' : 'Criar Conta'}</h2>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label>Usuário:</label>
+          
+          {/* CAMPO DE USUÁRIO COM A ESTRUTURA CORRETA PARA ANIMAÇÃO */}
+          <div className="container">
             <input
+              id="username" // ID para o 'htmlFor'
               type="text"
+              className="input"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
+            <label className="label" htmlFor="username">Usuário</label>
           </div>
-          <div>
-            <label>Senha:</label>
+
+          {/* CAMPO DE SENHA COM A ESTRUTURA CORRETA PARA ANIMAÇÃO */}
+          <div className="container">
             <input
+              id="password" // ID para o 'htmlFor'
               type="password"
+              className="input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <label className="label" htmlFor="password">Senha</label>
           </div>
+
           {error && <p className="error-message">{error}</p>}
           {message && <p className="success-message">{message}</p>}
+          
           <button type="submit">{isLogin ? 'Entrar' : 'Registrar'}</button>
         </form>
         <p className="toggle-auth" onClick={() => setIsLogin(!isLogin)}>
