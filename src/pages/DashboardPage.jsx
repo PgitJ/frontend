@@ -1,23 +1,26 @@
-// src/pages/DashboardPage.jsx - COMPLETO E FINAL
+// src/pages/DashboardPage.jsx - CÓDIGO FINAL
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'; // Adicione useMemo
 import Summary from '../components/Summary';
 import Chart from '../components/Chart';
-import TransactionList from '../components/TransactionList';
+// import TransactionList from '../components/TransactionList'; // 1. REMOVER IMPORT
 
-const DashboardPage = ({ transactions, onEditClick }) => {
+// A partir de agora, availableCategories é uma prop
+const DashboardPage = ({ transactions, onEditClick, availableCategories }) => { // 2. RECEBER availableCategories
   const [timeframe, setTimeframe] = useState('monthly');
   const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [search, setSearch] = useState('');
   const [filterCategory, setFilterCategory] = useState('all');
-  const [availableCategories, setAvailableCategories] = useState([]);
+  // 3. REMOVER: const [availableCategories, setAvailableCategories] = useState([]);
 
   useEffect(() => {
     let result = [...transactions];
     
-    // Extrai as categorias únicas
+    // 4. REMOVER LÓGICA DE EXTRAÇÃO DE CATEGORIAS
+    /*
     const uniqueCategories = [...new Set(transactions.map(t => t.category))].filter(Boolean);
     setAvailableCategories(['all', ...uniqueCategories]);
+    */
 
     // Aplica o filtro de categoria
     if (filterCategory !== 'all') {
@@ -30,7 +33,7 @@ const DashboardPage = ({ transactions, onEditClick }) => {
     }
     
     setFilteredTransactions(result);
-  }, [transactions, search, filterCategory]);
+  }, [transactions, search, filterCategory]); // Dependências ajustadas
 
   return (
     <div>
@@ -48,10 +51,10 @@ const DashboardPage = ({ transactions, onEditClick }) => {
       </div>
 
       <Chart transactions={filteredTransactions} timeframe={timeframe} />
-      <hr />
       
-      {/* Controles de Filtragem e Pesquisa */}
-      <div className="filter-controls">
+      
+      {/* 5. REMOVER: Controles de Filtragem e Pesquisa e TransactionList */}
+      {/* <div className="filter-controls">
         <input
           type="text"
           placeholder="Pesquisar transação..."
@@ -73,7 +76,10 @@ const DashboardPage = ({ transactions, onEditClick }) => {
       <TransactionList
         transactions={filteredTransactions}
         onEditClick={onEditClick}
-      />
+      /> 
+      */}
+      
+
     </div>
   );
 };

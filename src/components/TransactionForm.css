@@ -1,19 +1,19 @@
 /* src/components/TransactionForm.css */
 
 .form-container {
-  background-color: #fff;
+  background-color: var(--color-background-modal);
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+  max-width: 501px;
 }
 
 .form-container h2 {
   margin-top: 0;
   margin-bottom: 20px;
   text-align: center;
-  color: #2c3e50;
+  color: #7da1e9;
 }
 
 .form-container form > div {
@@ -33,6 +33,8 @@
 .form-container input[type="number"],
 .form-container input[type="date"],
 .form-container select {
+  color: var(--color-text);
+  background-color: var(--color-background-input);
   flex: 2;
   padding: 8px;
   border: 1px solid #ccc;

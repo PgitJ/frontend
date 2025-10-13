@@ -1,6 +1,3 @@
-/* src/index.css */
-
-/* Estilos globais */
 
 :root {
   /* LIGHT MODE (Padrão) */
@@ -11,32 +8,35 @@
   --color-background-table: #fff; 
   --color-background-filter: #fff;
   --color-background-button: #3498db;
-  --color-background-button-chart: #ecf0f1;
+  --color-background-button-chart: #e1e4e4;
   --color-background-carg-settings: #f9f9f9;
   --divisor: #b9b9b9;
       /* Branco (Cards, Header, Form) */
   --color-border: #ddd;              /* Cinza (Bordas, Separadores) */
   --color-shadow: rgba(0, 0, 0, 0.1); /* Sombra Leve */
-  --color-title: #D2ECF4;
+  --color-title: #34b1c5;
   /* Cores Fixas (Para manter o contraste em Receita/Despesa) */
   --color-income: #2ecc71;          /* Verde (Receita) */
   --color-expense: #e74c3c;     
-      /* Vermelho (Despesa) */
+  --color-background-input: #ffffff;
+  --color-background-modal:#f2f2f2; 
 }
 
 /* DARK MODE (Sobrescreve as variáveis quando a classe 'dark-mode' estiver ativa) */
 .dark-mode {
+  --color-background-input: #374151;
   --color-title: #afcae4;
   --color-text: #f4f7f9;
-  --color-background-button-chart: #68686e;
+  --color-background-button-chart: #ababb0;
   --divisor: #2e2e32;
-  --color-background-app: #1b1b1f;   /* Fundo escuro total */
-  --color-background-card: #161618; 
+  --color-background-app: #111827;   /* Fundo escuro total */
+  --color-background-card: #1F2937; 
+  --color-background-modal: #3f3f3f; 
   --color-background-carg-settings: #202020;
   --color-background-filter: #202127; /* Cards e elementos um pouco mais claros que o fundo */
   --color-border: #333;
   --color-shadow: rgba(255, 255, 255, 0.05);
-  --color-background-table: #161618;
+  --color-background-table: #374151;
   --color-background-button: #86a2da;
     /* Sombra escura sutil */
 }
@@ -170,12 +170,12 @@ button {
 }
 
 form {
-  background-color: #fff;
+  background-color: var(--color-background-card);
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
 }
 
 form div {
@@ -313,7 +313,7 @@ table thead {
 }
 
 .bill-form {
-  background-color: #fff;
+  background-color: var(--color-background-card);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -391,7 +391,7 @@ table thead {
 }
 
 .confirm-modal-content {
-  background-color: #fff;
+  background-color: var(--color-background-card);
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -417,7 +417,7 @@ table thead {
 }
 
 .confirm-modal-buttons .cancel-button {
-  background-color: #bdc3c7;
+  background-color: #dee4e9;
   border: 1px solid #95a5a6;
   color: #333;
 }
@@ -508,7 +508,7 @@ table thead {
 .chart-controls button {
   padding: 10px 15px;
   background-color: var(--color-background-button-chart);
-  color: #333;
+  color: #222222;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -549,7 +549,15 @@ table thead {
 hr{
   margin: 15px 0;
 }
+
+.theme-toggle-button{
+      margin: 0 10px;
+    }
 @media (max-width: 768px) {
+
+    .theme-toggle-button{
+      margin-top: 20px;
+    }
     main{
       padding-left: 20px;
       padding-right: 20px;

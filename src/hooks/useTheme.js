@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 
 const useTheme = () => {
+  
   // Inicializa o estado lendo do localStorage, ou usa 'light' como padrão
   const [theme, setTheme] = useState(
     localStorage.getItem('appTheme') || 'light'

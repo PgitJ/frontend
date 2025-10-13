@@ -1,6 +1,6 @@
 // src/App.jsx - COMPLETO E ATUALIZADO
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo} from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import DashboardPage from './pages/DashboardPage';
@@ -10,7 +10,10 @@ import TransactionForm from './components/TransactionForm';
 import ConfirmModal from './components/ConfirmModal';
 import Auth from './components/Auth';
 import SettingsPage from './pages/SettingsPage';
+import TransactionsPage from './pages/TransactionsPage';
 import useTheme from './hooks/useTheme';
+import MoonIcon from './assets/moonicon.svg'
+import SunIcon from './assets/sunicon.svg'
 
 // const API_BASE_URL = 'https://backend-python-5ehm.onrender.com';
 const API_URL = 'https://backend-u2li.onrender.com/api';
@@ -29,6 +32,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [availableCategories, setAvailableCategories] = useState([]);
+
+  const allCategories = useMemo(() => {
+    const uniqueCategories = [...new Set(transactions.map(t => t.category))].filter(Boolean);
+    return ['all', ...uniqueCategories];
+  }, [transactions]);
 
   const refreshAccessToken = async () => {
     const refreshToken = localStorage.getItem('refreshToken');
@@ -359,8 +367,8 @@ function App() {
     <Router>
       <div>
         <Header username={username} onAddTransactionClick={handleAddTransactionClick} balance={currentBalance} onLogout={handleLogout}>
-          <button onClick={toggleTheme} className="theme-toggle-button">
-            {theme === 'light' ? '🌙 Modo Escuro' : '☀️ Modo Claro'}
+          <button  onClick={toggleTheme} className="theme-toggle-button">
+            {theme === 'light' ? <img src={MoonIcon}/>: <img src={SunIcon}/>}
           </button>
         </Header>
         
@@ -383,7 +391,7 @@ function App() {
           />
         )}
         <nav style={{ padding: '20px' }}>
-          <Link to="/">Dashboard</Link> | <Link to="/goals">Metas</Link> | <Link to="/bills">Contas</Link> | <Link to="/settings">Configurações</Link>
+          <Link to="/">Dashboard</Link> | <Link to="/goals">Metas</Link> | <Link to="/bills">Contas</Link> | <Link to="/transactions">Transações</Link> | <Link to="/settings">Configurações</Link>
         </nav>
         <main>
           <Routes>
@@ -402,6 +410,11 @@ function App() {
               onAddBill={handleAddBill}
               onMarkAsPaid={handleMarkAsPaid}
               onDeleteBill={handleDeleteBill}
+            />} />
+            <Route path="/transactions" element={<TransactionsPage
+              transactions={transactions}
+              onEditClick={handleEditClick}
+              availableCategories={allCategories}
             />} />
             <Route path="/settings" element={<SettingsPage
               availableCategories={availableCategories}
